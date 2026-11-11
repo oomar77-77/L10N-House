@@ -1,0 +1,16 @@
+
+@use "abstracts/variables";
+@use "abstracts/mixins";
+
+
+@use "components/navbar";
+@use "components/home";
+@use "components/About";
+@use "components/Services";
+@use "components/why-us";
+@use "components/language_sectors";
+@use "components/contact";
+
+h2 {
+  color: variables.$secondColor;
+}

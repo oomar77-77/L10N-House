@@ -1,0 +1,178 @@
+@use "../abstracts/" as *;
+
+#Contact {
+  background-color: $firstColor;
+  background-image: linear-gradient(rgba(113, 159, 61, 0.6), rgba(113, 159, 61, 0.7)), url("../images/contact-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: #fff;
+
+  .container {
+    .title {
+      h2 {
+        color: #fff;
+      }
+
+      &::after {
+        background-color: #fff;
+      }
+    }
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+  }
+
+  .box {
+    width: 400px;
+    height: 450px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    color: #333;
+    padding: 40px 20px;
+
+    @include respond(350) {
+      width: 280px;
+      height: auto;
+    }
+
+    @include respond(850) {
+      width: 320px;
+      height: 400px;
+    }
+
+    @include respond(1050) {
+      width: 420px;
+      height: 350px;
+    }
+  }
+
+  .box.info {
+    padding: 60px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .block {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  form {
+    & input {
+      color: #000;
+    }
+
+    .form-control {
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 14px;
+      color: #333;
+      background-color: #fff;
+      box-shadow: none;
+      transition: all 0.3s ease;
+
+      &:focus {
+        border-color: $firstColor;
+        background-color: #fff;
+        box-shadow: 0 0 0 3px rgba($firstColor, 0.15);
+      }
+
+      &::placeholder {
+        color: #000;
+        opacity: .75;
+      }
+    }
+
+    textarea.form-control {
+      resize: none;
+    }
+
+    .btn {
+      background-color: $secondColor;
+      color: #fff;
+      padding: 10px 25px;
+      font-weight: 600;
+      border-radius: 6px;
+      border: none;
+    }
+  }
+
+  .block {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .icon {
+      font-size: 18px;
+      color: $secondColor;
+      margin-right: 15px;
+      width: 25px;
+      text-align: center;
+      padding-top: 2px;
+    }
+
+    .details {
+      h6 {
+        font-weight: 700;
+        margin-bottom: 3px;
+        color: #333;
+        font-size: 16px;
+      }
+
+      p {
+        color: #666;
+        margin-bottom: 0;
+        font-size: 14px;
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      color: #fff;
+      border-radius: 50%;
+      margin-right: 10px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        transform: translateY(-3px);
+        opacity: 0.8;
+      }
+
+      &:has(.fa-facebook-f) {
+        background-color: #0045B5;
+      }
+
+      &:has(.fa-instagram) {
+        background-color: #C52661;
+      }
+
+      &:has(.fa-youtube) {
+        background-color: #F70000;
+      }
+    }
+  }
+}

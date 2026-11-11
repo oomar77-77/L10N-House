@@ -1,0 +1,73 @@
+@use "../abstracts/" as *;
+
+
+#Why_us {
+    .item {
+        background-color: $secondColor;
+        @include distance($w: 350px, $h: 450px);
+        margin: auto;
+
+        @include respond(350) {
+            @include distance($w: 280px, $h: 450px);
+        }
+
+        @include respond(1050) {
+            @include distance($w: 290px, $h: 450px);
+        }
+
+        .box {
+            @include distance(100%, 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            color: #fff;
+            transition-duration: .5s;
+            overflow: hidden;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            .box::before {
+                @include createEle(100%, 100%);
+                background: linear-gradient(0deg, #1e2033 0%, transparent 75%);
+                @include position($t: 0, $l: 0);
+            }
+
+            p {
+                color: #fff;
+            }
+
+            .content {
+                position: relative;
+            }
+        }
+
+        &:hover {
+            .box {
+                transform: translate(-10px, 10px);
+            }
+        }
+    }
+
+    .part:nth-child(1) .box {
+    background-image: url("../images/best.jpg");
+}
+
+.part:nth-child(2) .box {
+    background-image: url("../images/solutions.jpg");
+}
+
+.part:nth-child(3) .box {
+    background-image: url("../images/teamwork.jpg");
+}
+
+.part .box {
+    box-shadow: none;
+    transition: all 0.4s ease;
+
+    &:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+}
+}

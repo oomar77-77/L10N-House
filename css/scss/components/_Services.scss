@@ -1,0 +1,89 @@
+@use "./../abstracts/" as *;
+@use "../abstracts/mixins";
+
+#Services{
+    .box{
+            border-radius: 10px;
+            padding: 20px 30px;
+            transition-duration: .5s;
+            width: 95%;
+            margin: auto;
+            transform: translateY(0);
+        &:hover{
+            background-color: #fff;
+            box-shadow: 0 20px 50px #000;
+            transform: translateY(-5px);
+
+        }
+        img{
+            width: 70px;
+        }
+
+        p{
+            width: 90%;
+            margin: auto; 
+        }
+    }
+    .content {
+        background-image: url("../images/video-bg.jpg");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    @include distance($w: 100%, $h: 250px);
+    .title{
+        &::after{
+            background-color: #fff;
+        }
+        
+    }
+    .video-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    &::before {
+        @include createEle();
+        @include position($t: 0, $l: 0);
+        @include distance($w: 100%, $h: 100%); 
+        background-image: radial-gradient(#68b703 , #305d00);
+        opacity: .8;
+        z-index: 1; 
+    }
+    > * {
+        position: relative;
+        z-index: 2;
+    }
+    .cover{
+        transform: translateX(-50%);
+    }
+    .play-btn {
+            background-color: #fff;
+            width: 70px;
+            height: 45px;
+            border-radius: 10px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+              transform: translateX(50%);
+
+            i {
+                color: #6D9615; 
+                font-size: 20px;
+                display: flex;
+            justify-content: center;
+            align-items: center;
+                
+            }
+        }
+
+    }
+}

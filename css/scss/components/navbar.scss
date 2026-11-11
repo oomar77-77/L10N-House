@@ -1,0 +1,156 @@
+
+@use "./../abstracts/" as *;
+
+/* --navbar-- */
+
+nav.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    transition-duration: .5s;
+    .container {
+        padding: 0px;
+    }
+
+    &.scrolled {
+        background-color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+        .navbar-brand {
+            width: 11%;
+        }
+    }
+
+    .navbar-brand {
+        width: 8%;
+        transition: width 0.3s ease;
+
+        @include respond(350) {
+            width: 20%;
+
+            @include respond(850) {
+                width: 12%;
+            }
+
+            @include respond(1050) {
+                width: 8%;
+            }
+        }
+    }
+
+    .navbar-toggler {
+        border: 1px solid $firstColor;
+        outline: none;
+        box-shadow: none;
+
+        &:focus {
+            outline: 1px solid $firstColor;
+            box-shadow: 0 0 0 3px rgba($firstColor, 0.2);
+        }
+    }
+
+    .navbar-nav {
+        .nav-link {
+            color: $firstColor;
+            font-weight: 500;
+            position: relative;
+            padding: 0;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%) translateY(8px);
+                width: 0%;
+                height: 2px;
+                background-color: $secondColor;
+                transition: width 0.3s ease-in-out;
+            }
+
+            &:hover::after,
+            &.active::after {
+                width: 100%;
+            }
+        }
+    }
+
+    .navbar-collapse {
+        @include respond(350) {
+            background-color: #fff;
+            width: 280px;
+            flex: 0 0 280px;
+            margin: auto;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+
+            @include respond(450) {
+                width: 350px;
+                flex: 0 0 350px;
+                margin: auto;
+
+                @include respond(650) {
+                    width: 500px;
+                    flex: 0 0 500px;
+                    margin: auto;
+                }
+
+                @include respond(850) {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    right: 0;
+                }
+
+                @include respond(1050) {
+                    background-color: transparent;
+                    position: static;
+                    width: auto;
+                    flex: 1;
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-left: auto;
+                    margin-right: 0;
+                    padding: 0;
+                    border-radius: 0;
+                    box-shadow: none;
+                }
+            }
+        }
+
+        ul {
+            @include respond(350) {
+                text-align: center;
+
+                @include respond(1050) {
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            li {
+                @include respond(350) {
+                    margin-block: 5px;
+                    padding: 5px 0;
+
+                    @include respond(1050) {
+                        margin-block: 0;
+                        margin-left: 5px;
+                        padding: 0;
+                    }
+                }
+            }
+
+            #loginDropdown::after {
+                display: inline-block;
+                margin-left: 5px;
+                vertical-align: middle;
+                flex-shrink: 0;
+            }
+        }
+    }
+}
